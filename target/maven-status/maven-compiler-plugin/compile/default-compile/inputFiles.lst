@@ -1,0 +1,6 @@
+/Users/murugappankrishna/Desktop/FCC_BACKEND_API/URL-Shortener-Microservice/src/main/java/com/murugappan/UrlShortenerMicroserviceApplication.java
+/Users/murugappankrishna/Desktop/FCC_BACKEND_API/URL-Shortener-Microservice/src/main/java/com/murugappan/controller/URLShortenerController.java
+/Users/murugappankrishna/Desktop/FCC_BACKEND_API/URL-Shortener-Microservice/src/main/java/com/murugappan/model/InputUrl.java
+/Users/murugappankrishna/Desktop/FCC_BACKEND_API/URL-Shortener-Microservice/src/main/java/com/murugappan/model/Url.java
+/Users/murugappankrishna/Desktop/FCC_BACKEND_API/URL-Shortener-Microservice/src/main/java/com/murugappan/repo/UrlRepository.java
+/Users/murugappankrishna/Desktop/FCC_BACKEND_API/URL-Shortener-Microservice/src/main/java/com/murugappan/service/UrlService.java

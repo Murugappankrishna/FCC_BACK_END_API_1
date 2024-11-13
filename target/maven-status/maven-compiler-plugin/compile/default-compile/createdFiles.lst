@@ -1,0 +1,6 @@
+com/murugappan/model/InputUrl.class
+com/murugappan/UrlShortenerMicroserviceApplication.class
+com/murugappan/repo/UrlRepository.class
+com/murugappan/model/Url.class
+com/murugappan/controller/URLShortenerController.class
+com/murugappan/service/UrlService.class
