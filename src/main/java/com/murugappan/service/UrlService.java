@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -53,7 +54,7 @@ public class UrlService {
     public ResponseEntity<?> getOriginalUrl(int shortUrl) {
         Url url = urlRepository.findByShortUrl(shortUrl);
         if (url != null) {
-            return ResponseEntity.ok(url.getOriginalUrl());
+            return ResponseEntity.status(HttpStatus.FOUND).header("Location", url.getOriginalUrl()).build();
         } else {
             return ResponseEntity.notFound().build();
         }
