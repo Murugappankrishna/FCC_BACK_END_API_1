@@ -26,23 +26,12 @@ public class UrlService {
 
     private static boolean validate(String url) {
         try {
-            URL inputUrl = new URL(url); // Parse the URL
-            HttpURLConnection connection = (HttpURLConnection) inputUrl.openConnection();
-            connection.setRequestMethod("GET");
-            connection.setConnectTimeout(5000); // Set timeout (optional)
-            connection.setReadTimeout(5000); // Set read timeout (optional)
 
-            int responseCode = connection.getResponseCode(); // Get the response code
-System.out.println(responseCode);
-            if (responseCode == 200) {
-                // Return "OK" if the response code is 200
-                return true;
-            } else {
-                // Return "NO" for other response codes
-                return false;
-            }
+            URL parsedUrl = new URL(url);
+            String hostname = parsedUrl.getHost();
+            InetAddress address = InetAddress.getByName(hostname);
+            return true;
         } catch (IOException e) {
-            // Return "NO" if any exception occurs (e.g., connection issues)
             return false;
         }
     }
@@ -68,12 +57,12 @@ System.out.println(responseCode);
         }
     }
 
-    public ResponseEntity<?> getOriginalUrl(int shortUrl) {
+    public String getOriginalUrl(int shortUrl) {
         Url url = urlRepository.findByShortUrl(shortUrl);
         if (url != null) {
-            return ResponseEntity.status(HttpStatus.FOUND).header("Location", url.getOriginalUrl()).build();
+           return url.getOriginalUrl();
         } else {
-            return ResponseEntity.notFound().build();
+            return null;
         }
     }
 }
