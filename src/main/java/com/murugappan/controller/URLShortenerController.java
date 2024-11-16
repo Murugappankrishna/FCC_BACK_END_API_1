@@ -44,9 +44,9 @@ public class URLShortenerController {
                     .body("Internal Server Error");
         }
     }
-    @GetMapping("/")
-    public String demo(@RequestParam("v") String v){
+    @GetMapping("/") // The path here matches the base URL path
+    public String demo(@RequestParam(value = "v", required = false) String v) {
         System.out.println("/ mapping");
-        return v;
+        return v != null ? v : "Parameter 'v' not provided";
     }
 }

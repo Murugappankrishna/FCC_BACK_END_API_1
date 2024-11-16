@@ -30,6 +30,7 @@ public class UrlService {
             URL parsedUrl = new URL(url);
             String hostname = parsedUrl.getHost();
             InetAddress address = InetAddress.getByName(hostname);
+            System.out.println(address);
             return true;
         } catch (IOException e) {
             return false;
