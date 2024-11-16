@@ -24,7 +24,10 @@ public class UrlService {
 
     private static boolean validate(String url) {
         try {
-            InetAddress address = InetAddress.getByName(url);
+            URL inputUrl = new URL(url); // Parse the URL
+            String host = inputUrl.getHost(); // Extract the hostname
+            InetAddress address = InetAddress.getByName(host);
+            System.out.println(address);
             return true;
         } catch (Exception e) {
             return false;
