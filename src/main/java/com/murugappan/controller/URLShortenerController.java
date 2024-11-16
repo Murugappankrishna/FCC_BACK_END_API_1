@@ -26,6 +26,7 @@ public class URLShortenerController {
 
     @GetMapping("/shorturl/{shortUrl}")
     public ResponseEntity<?> redirectToOriginalUrl(@PathVariable int shortUrl) {
+        System.out.println("Vanakam Da  in shorturl Controller");
         return urlService.getOriginalUrl(shortUrl);
     }
 }

@@ -22,14 +22,16 @@ import org.springframework.stereotype.Component;
 public class Url {
     @Id
     private String id;
-@Field("original_url")
-    private String OriginalUrl;
-@Field("short_url")
-    private int ShortUrl;
+
+    @Field("original_url")
+    private String originalUrl;  // Updated to camel case
+
+    @Field("short_url")
+    private int shortUrl;  // Updated to camel case
 
     public Url(String originalUrl, int shortUrl) {
-        this.OriginalUrl = originalUrl;
-        this.ShortUrl = shortUrl;
+        this.originalUrl = originalUrl;
+        this.shortUrl = shortUrl;
     }
 }
 

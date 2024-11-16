@@ -53,7 +53,7 @@ public class UrlService {
     public ResponseEntity<?> getOriginalUrl(int shortUrl) {
         Url url = urlRepository.findByShortUrl(shortUrl);
         if (url != null) {
-            return ResponseEntity.ok(url.getShortUrl());
+            return ResponseEntity.ok(url.getOriginalUrl());
         } else {
             return ResponseEntity.notFound().build();
         }
