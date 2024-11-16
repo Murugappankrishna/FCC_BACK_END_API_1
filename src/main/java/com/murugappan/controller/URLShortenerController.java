@@ -44,4 +44,8 @@ public class URLShortenerController {
                     .body("Internal Server Error");
         }
     }
+    @GetMapping
+    public String demo(@PathVariable String number){
+        return number;
+    }
 }
