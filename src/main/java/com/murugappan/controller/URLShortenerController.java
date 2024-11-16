@@ -9,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api")
 @CrossOrigin
 
 
@@ -20,13 +19,13 @@ public class URLShortenerController {
         this.urlService = urlService;
     }
 
-    @PostMapping("/shorturl")
+    @PostMapping("/api/shorturl")
     ResponseEntity<?> shortUrl(@RequestParam("url") String url) {
         System.out.println("shorturl Controller");
         return urlService.shortUrl(url);
     }
 
-    @GetMapping("/shorturl/{shortUrl}")
+    @GetMapping("/api/shorturl/{shortUrl}")
     public ResponseEntity<?> redirectToOriginalUrl(@PathVariable int shortUrl, HttpServletResponse response) {
         System.out.println("GetOG URL");
         String targetUrl = urlService.getOriginalUrl(shortUrl);
