@@ -1,6 +1,6 @@
 package com.murugappan.controller;
 
-import com.murugappan.model.InputUrl;
+
 import com.murugappan.model.Url;
 import com.murugappan.service.UrlService;
 import org.springframework.http.ResponseEntity;
@@ -19,9 +19,9 @@ public class URLShortenerController {
     }
 
     @PostMapping("/shorturl")
-    ResponseEntity<?> shortUrl(@RequestBody InputUrl url) {
+    ResponseEntity<?> shortUrl(@RequestParam("url") String url) {
         System.out.println("Vanakam Da Mapla in shorturl Controller");
-        return urlService.shortUrl(url.getOriginalUrl());
+        return urlService.shortUrl(url);
     }
 
     @GetMapping("/shorturl/{shortUrl}")

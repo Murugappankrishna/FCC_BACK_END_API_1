@@ -40,8 +40,8 @@ public class UrlService {
             Url newUrl = new Url(url, newShortUrl);
             urlRepository.save(newUrl);
             Document responseJson = new Document();
-            responseJson.put("originalUrl", newUrl.getOriginalUrl());
-            responseJson.put("shortUrl", newUrl.getShortUrl());
+            responseJson.put("original_url", newUrl.getOriginalUrl());
+            responseJson.put("short_url", newUrl.getShortUrl());
             return ResponseEntity.ok(responseJson);
         } else {
             Document jsonObject = new Document();
@@ -53,7 +53,7 @@ public class UrlService {
     public ResponseEntity<?> getOriginalUrl(int shortUrl) {
         Url url = urlRepository.findByShortUrl(shortUrl);
         if (url != null) {
-            return ResponseEntity.ok(url.getOriginalUrl());
+            return ResponseEntity.ok(url.getShortUrl());
         } else {
             return ResponseEntity.notFound().build();
         }

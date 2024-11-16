@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.stereotype.Component;
 
 
@@ -21,14 +22,14 @@ import org.springframework.stereotype.Component;
 public class Url {
     @Id
     private String id;
-    @JsonProperty("original_url")
-    private String originalUrl;
-    @JsonProperty("short_url")
-    private int shortUrl;
+@Field("original_url")
+    private String OriginalUrl;
+@Field("short_url")
+    private int ShortUrl;
 
     public Url(String originalUrl, int shortUrl) {
-        this.originalUrl = originalUrl;
-        this.shortUrl = shortUrl;
+        this.OriginalUrl = originalUrl;
+        this.ShortUrl = shortUrl;
     }
 }
 
