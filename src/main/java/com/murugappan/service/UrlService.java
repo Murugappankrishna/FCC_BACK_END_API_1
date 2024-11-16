@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.net.InetAddress;
 import java.net.URL;
 import java.util.List;
 
@@ -23,9 +24,8 @@ public class UrlService {
 
     private static boolean validate(String url) {
         try {
-            new URL(url).toURI();
-            String pattern = "^http://www\\.[a-zA-Z0-9-]+\\.com$";
-            return url.matches(pattern);
+            InetAddress address = InetAddress.getByName(url);
+            return true;
         } catch (Exception e) {
             return false;
         }
