@@ -22,13 +22,13 @@ public class URLShortenerController {
 
     @PostMapping("/shorturl")
     ResponseEntity<?> shortUrl(@RequestParam("url") String url) {
-        System.out.println("Vanakam Da Mapla in shorturl Controller");
+        System.out.println("shorturl Controller");
         return urlService.shortUrl(url);
     }
 
     @GetMapping("/shorturl/{shortUrl}")
     public ResponseEntity<?> redirectToOriginalUrl(@PathVariable int shortUrl, HttpServletResponse response) {
-        System.out.println("Vanakam Da  in shorturl Controller");
+        System.out.println("GetOG URL");
         String targetUrl = urlService.getOriginalUrl(shortUrl);
         try {
             if (targetUrl != null) {
@@ -45,8 +45,8 @@ public class URLShortenerController {
         }
     }
     @GetMapping("/")
-    public String demo(@PathVariable String number){
-        System.out.println("Vanakam Da  in demo Controller");
-        return number;
+    public String demo(@RequestParam("v") String v){
+        System.out.println("/ mapping");
+        return v;
     }
 }
