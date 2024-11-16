@@ -44,8 +44,9 @@ public class URLShortenerController {
                     .body("Internal Server Error");
         }
     }
-    @GetMapping
+    @GetMapping("/")
     public String demo(@PathVariable String number){
+        System.out.println("Vanakam Da  in demo Controller");
         return number;
     }
 }
