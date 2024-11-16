@@ -62,7 +62,7 @@ public class UrlService {
         } else {
             Document jsonObject = new Document();
             jsonObject.put("error", "invalid url");
-            return ResponseEntity.badRequest().body(jsonObject);
+            return ResponseEntity.ok(jsonObject);
         }
     }
 
