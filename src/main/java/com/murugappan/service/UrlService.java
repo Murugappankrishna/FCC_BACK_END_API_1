@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
+import java.net.URI;
 import java.net.URL;
 import java.util.List;
 
@@ -26,13 +27,20 @@ public class UrlService {
 
     private static boolean validate(String url) {
         try {
-
-            URL parsedUrl = new URL(url);
+            // Step 1: Validate the URL format using URI
+            URI uri = new URI(url);
+            if (!uri.isAbsolute() || uri.getHost() == null) {
+                System.out.println("Invalid URL format.");
+                return false;
+            }
+            URL parsedUrl = uri.toURL();
             String hostname = parsedUrl.getHost();
             InetAddress address = InetAddress.getByName(hostname);
-            System.out.println(address);
+            System.out.println("Resolved Address: " + address);
             return true;
-        } catch (IOException e) {
+        } catch (Exception e) {
+            // Handle invalid URLs and resolution failures
+            System.out.println("Error: " + e.getMessage());
             return false;
         }
     }
