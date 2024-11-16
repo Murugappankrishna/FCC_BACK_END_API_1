@@ -24,7 +24,8 @@ public class UrlService {
     private static boolean validate(String url) {
         try {
             new URL(url).toURI();
-            return true;
+            String pattern = "^http://www\\.[a-zA-Z0-9-]+\\.com$";
+            return url.matches(pattern);
         } catch (Exception e) {
             return false;
         }
