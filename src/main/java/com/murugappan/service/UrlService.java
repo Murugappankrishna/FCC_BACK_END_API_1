@@ -33,7 +33,7 @@ public class UrlService {
             connection.setReadTimeout(5000); // Set read timeout (optional)
 
             int responseCode = connection.getResponseCode(); // Get the response code
-
+System.out.println(responseCode);
             if (responseCode == 200) {
                 // Return "OK" if the response code is 200
                 return true;
